@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnSearch = null;
     private OMDbAPI omDbAPI = new OMDbAPI();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +29,18 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         initEvents();
     }
-    public void initViews(){
+
+    public void initViews() {
         btnSearch = findViewById(R.id.btnSearch);
     }
-    public void initEvents(){
+
+    public void initEvents() {
         btnSearch.setOnClickListener(view -> {
             requestMovieInfo();
         });
     }
 
-    public void requestMovieInfo(){
+    public void requestMovieInfo() {
         omDbAPI.requestMovieInfo("superman", text -> {
             Root root = new Gson().fromJson(text, Root.class);
             Log.d("data", root.getTitle());
