@@ -3,230 +3,106 @@ package com.example.movies.domain.model;
 import java.util.ArrayList;
 
 public class Root {
-    public String getTitle() {
-        return Title;
-    }
 
-    public void setTitle(String title) {
-        Title = title;
-    }
+    private String title;
+    private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
+    private String poster;
+    private Rating[] ratings;
+    private String metascore;
+    private String imdbRating;
+    private String imdbVotes;
+    private String imdbID;
+    private String type;
+    private String dvd;
+    private String boxOffice;
+    private String production;
+    private String website;
+    private String response;
 
-    public String getYear() {
-        return year;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String value) { this.title = value; }
 
-    public void setYear(String year) {
-        this.year = year;
-    }
+    public String getYear() { return year; }
+    public void setYear(String value) { this.year = value; }
 
-    public String getRated() {
-        return Rated;
-    }
+    public String getRated() { return rated; }
+    public void setRated(String value) { this.rated = value; }
 
-    public void setRated(String rated) {
-        Rated = rated;
-    }
+    public String getReleased() { return released; }
+    public void setReleased(String value) { this.released = value; }
 
-    public String getReleased() {
-        return Released;
-    }
+    public String getRuntime() { return runtime; }
+    public void setRuntime(String value) { this.runtime = value; }
 
-    public void setReleased(String released) {
-        Released = released;
-    }
+    public String getGenre() { return genre; }
+    public void setGenre(String value) { this.genre = value; }
 
-    public String getRuntime() {
-        return Runtime;
-    }
+    public String getDirector() { return director; }
+    public void setDirector(String value) { this.director = value; }
 
-    public void setRuntime(String runtime) {
-        Runtime = runtime;
-    }
+    public String getWriter() { return writer; }
+    public void setWriter(String value) { this.writer = value; }
 
-    public String getGenre() {
-        return Genre;
-    }
+    public String getActors() { return actors; }
+    public void setActors(String value) { this.actors = value; }
 
-    public void setGenre(String genre) {
-        Genre = genre;
-    }
+    public String getPlot() { return plot; }
+    public void setPlot(String value) { this.plot = value; }
 
-    public String getDirector() {
-        return Director;
-    }
+    public String getLanguage() { return language; }
+    public void setLanguage(String value) { this.language = value; }
 
-    public void setDirector(String director) {
-        Director = director;
-    }
+    public String getCountry() { return country; }
+    public void setCountry(String value) { this.country = value; }
 
-    public String getWriter() {
-        return Writer;
-    }
+    public String getAwards() { return awards; }
+    public void setAwards(String value) { this.awards = value; }
 
-    public void setWriter(String writer) {
-        Writer = writer;
-    }
+    public String getPoster() { return poster; }
+    public void setPoster(String value) { this.poster = value; }
 
-    public String getActors() {
-        return Actors;
-    }
+    public Rating[] getRatings() { return ratings; }
+    public void setRatings(Rating[] value) { this.ratings = value; }
 
-    public void setActors(String actors) {
-        Actors = actors;
-    }
+    public String getMetascore() { return metascore; }
+    public void setMetascore(String value) { this.metascore = value; }
 
-    public String getPlot() {
-        return Plot;
-    }
+    public String getImdbRating() { return imdbRating; }
+    public void setImdbRating(String value) { this.imdbRating = value; }
 
-    public void setPlot(String plot) {
-        Plot = plot;
-    }
+    public String getImdbVotes() { return imdbVotes; }
+    public void setImdbVotes(String value) { this.imdbVotes = value; }
 
-    public String getLanguage() {
-        return Language;
-    }
+    public String getImdbID() { return imdbID; }
+    public void setImdbID(String value) { this.imdbID = value; }
 
-    public void setLanguage(String language) {
-        Language = language;
-    }
+    public String getType() { return type; }
+    public void setType(String value) { this.type = value; }
 
-    public String getCountry() {
-        return Country;
-    }
+    public String getDVD() { return dvd; }
+    public void setDVD(String value) { this.dvd = value; }
 
-    public void setCountry(String country) {
-        Country = country;
-    }
+    public String getBoxOffice() { return boxOffice; }
+    public void setBoxOffice(String value) { this.boxOffice = value; }
 
-    public String getAwards() {
-        return Awards;
-    }
+    public String getProduction() { return production; }
+    public void setProduction(String value) { this.production = value; }
 
-    public void setAwards(String awards) {
-        Awards = awards;
-    }
+    public String getWebsite() { return website; }
+    public void setWebsite(String value) { this.website = value; }
 
-    public String getRoster() {
-        return Roster;
-    }
+    public String getResponse() { return response; }
+    public void setResponse(String value) { this.response = value; }
 
-    public void setRoster(String roster) {
-        Roster = roster;
-    }
-
-    public ArrayList<Rating> getRatings() {
-        return Ratings;
-    }
-
-    public void setRatings(ArrayList<Rating> ratings) {
-        Ratings = ratings;
-    }
-
-    public String getMetascore() {
-        return Metascore;
-    }
-
-    public void setMetascore(String metascore) {
-        Metascore = metascore;
-    }
-
-    public String getImdbRating() {
-        return imdbRating;
-    }
-
-    public void setImdbRating(String imdbRating) {
-        this.imdbRating = imdbRating;
-    }
-
-    public String getImdbVotes() {
-        return imdbVotes;
-    }
-
-    public void setImdbVotes(String imdbVotes) {
-        this.imdbVotes = imdbVotes;
-    }
-
-    public String getImdbID() {
-        return imdbID;
-    }
-
-    public void setImdbID(String imdbID) {
-        this.imdbID = imdbID;
-    }
-
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String type) {
-        Type = type;
-    }
-
-    public String getDVD() {
-        return DVD;
-    }
-
-    public void setDVD(String DVD) {
-        this.DVD = DVD;
-    }
-
-    public String getBoxOffice() {
-        return BoxOffice;
-    }
-
-    public void setBoxOffice(String boxOffice) {
-        BoxOffice = boxOffice;
-    }
-
-    public String getWebsite() {
-        return Website;
-    }
-
-    public void setWebsite(String website) {
-        Website = website;
-    }
-
-    public String getResponse() {
-        return Response;
-    }
-
-    public void setResponse(String response) {
-        Response = response;
-    }
-
-    public String Title;
-    public String year;
-    public String Rated;
-    public String Released;
-    public String Runtime;
-    public String Genre;
-    public String Director;
-    public String Writer;
-    public String Actors;
-    public String Plot;
-    public String Language;
-    public String Country;
-    public String Awards;
-    public String Roster;
-    public ArrayList<Rating> Ratings;
-    public String Metascore;
-    public String imdbRating;
-    public String imdbVotes;
-    public String imdbID;
-    public String Type;
-    public String DVD;
-    public String BoxOffice;
-
-    public String getProduction() {
-        return Production;
-    }
-
-    public void setProduction(String production) {
-        Production = production;
-    }
-
-    public String Production;
-    public String Website;
-    public String Response;
 }

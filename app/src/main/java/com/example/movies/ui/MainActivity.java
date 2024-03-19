@@ -2,14 +2,19 @@ package com.example.movies.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.movies.R;
 import com.example.movies.data.remote.OMDbAPI;
 import com.example.movies.domain.model.Root;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import cafsoft.foundation.HTTPURLResponse;
 import cafsoft.foundation.URLComponents;
@@ -19,7 +24,9 @@ import cafsoft.foundation.URLSession;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView labTittle = null;
     private Button btnSearch = null;
+    private ImageView imgPoster = null;
     private OMDbAPI omDbAPI = new OMDbAPI();
 
     @Override
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void initViews() {
         btnSearch = findViewById(R.id.btnSearch);
+        labTittle = findViewById(R.id.labTittle);
+        imgPoster = findViewById(R.id.imgPoster);
     }
 
     public void initEvents() {
@@ -42,8 +51,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void requestMovieInfo() {
         omDbAPI.requestMovieInfo("superman", text -> {
-            Root root = new Gson().fromJson(text, Root.class);
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.setFieldNamingStrategy(field -> {
+                var fieldName = field.getName();
+                if (fieldName.equals("dvd")) {
+                    fieldName = "DVD";
+                } else if (!fieldName.startsWith("imdb"))
+                    fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+                return fieldName;
+            });
+            var root = gsonBuilder.create().fromJson(text, Root.class);
             Log.d("data", root.getTitle());
+            requestImage(root);
+        }, errorCode -> {
+            Log.d("error", String.valueOf(errorCode));
+        });
+    }
+
+    public void showMovieInfo(Root info, Bitmap image) {
+        labTittle.setText(info.getTitle());
+        imgPoster.setImageBitmap(image);
+    }
+
+    public void requestImage(Root info) {
+        omDbAPI.requestImage(info.getPoster(), image -> {
+            runOnUiThread(() -> showMovieInfo(info, image));
         }, errorCode -> {
             Log.d("error", String.valueOf(errorCode));
         });

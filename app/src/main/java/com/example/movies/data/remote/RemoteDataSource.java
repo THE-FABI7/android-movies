@@ -36,8 +36,9 @@ public class RemoteDataSource {
     }
 
     public interface ImageCompletionHandler {
-        void run(int errorCode, Bitmap bitmap);
+        void run(Bitmap image);
     }
+
 
     public interface ErrorCodeCompletionHandler {
         void run(int errorCode);
