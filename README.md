@@ -1,4 +1,4 @@
-**PelículasApp**
+# PelículasApp
 
 PelículasApp es una aplicación que te permite explorar información sobre películas utilizando una API de películas.
 
@@ -8,6 +8,7 @@ PelículasApp es una aplicación que te permite explorar información sobre pel�
 - Explorar películas por género
 - Ver detalles de la película
 - Buscar películas por título
+- visualizar el poster de la pelicula
 </details>
 
 <details>
