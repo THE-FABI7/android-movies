@@ -16,6 +16,9 @@ import com.example.movies.domain.model.Root;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import android.widget.Toast;
+
+
 import cafsoft.foundation.HTTPURLResponse;
 import cafsoft.foundation.URLComponents;
 import cafsoft.foundation.URLQueryItem;
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void requestMovieInfo() {
-        omDbAPI.requestMovieInfo("superman", text -> {
+        omDbAPI.requestMovieInfo("Batman", text -> {
             GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.setFieldNamingStrategy(field -> {
                 var fieldName = field.getName();
@@ -61,8 +64,18 @@ public class MainActivity extends AppCompatActivity {
                 return fieldName;
             });
             var root = gsonBuilder.create().fromJson(text, Root.class);
-            Log.d("data", root.getTitle());
-            requestImage(root);
+
+            if (root.getResponse().equalsIgnoreCase("True")) {
+
+                Log.d("data", root.getTitle());
+                requestImage(root);
+            } else {
+                // Mostrar mensaje de error
+                runOnUiThread(() -> {
+                    Toast.makeText(MainActivity.this, "Película no encontrada", Toast.LENGTH_SHORT).show();
+                });
+            }
+
         }, errorCode -> {
             Log.d("error", String.valueOf(errorCode));
         });
