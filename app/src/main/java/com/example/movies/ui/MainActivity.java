@@ -37,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (android.os.Build.VERSION.SDK_INT > 9)
-        {
-            StrictMode.ThreadPolicy policy = new
-                    StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
         initViews();
         initEvents();
     }
@@ -71,17 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 return fieldName;
             });
             var root = gsonBuilder.create().fromJson(text, Root.class);
-
-            if (root.getResponse().equalsIgnoreCase("True")) {
-
-                Log.d("data", root.getTitle());
-                requestImage(root);
-            } else {
-                // Mostrar mensaje de error
-                runOnUiThread(() -> {
-                    Toast.makeText(MainActivity.this, "Película no encontrada", Toast.LENGTH_SHORT).show();
-                });
-            }
+            Log.d("data", root.getTitle());
+            requestImage(root);
 
         }, errorCode -> {
             Log.d("error", String.valueOf(errorCode));
