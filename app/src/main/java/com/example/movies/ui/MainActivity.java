@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void requestMovieInfo() {
-        omDbAPI.requestMovieInfo("Batman", text -> {
+        omDbAPI.requestMovieInfo("Bsadafa", text -> {
             GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.setFieldNamingStrategy(field -> {
                 var fieldName = field.getName();
@@ -65,8 +65,16 @@ public class MainActivity extends AppCompatActivity {
                 return fieldName;
             });
             var root = gsonBuilder.create().fromJson(text, Root.class);
-            Log.d("data", root.getTitle());
-            requestImage(root);
+            if (root.getResponse().equalsIgnoreCase("True")) {
+
+                Log.d("data", root.getTitle());
+                requestImage(root);
+            } else if(root.getResponse().equalsIgnoreCase("False")) {
+                // Mostrar mensaje de error
+                runOnUiThread(() -> {
+                    Toast.makeText(MainActivity.this, "Película no encontrada", Toast.LENGTH_SHORT).show();
+                });
+            }
 
         }, errorCode -> {
             Log.d("error", String.valueOf(errorCode));
