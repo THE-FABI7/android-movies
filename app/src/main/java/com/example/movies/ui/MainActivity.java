@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView labTittle = null;
     private Button btnSearch = null;
     private ImageView imgPoster = null;
+
+    private EditText editTextMovieName;
     private OMDbAPI omDbAPI = new OMDbAPI();
 
     @Override
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnSearch = findViewById(R.id.btnSearch);
         labTittle = findViewById(R.id.labTittle);
         imgPoster = findViewById(R.id.imgPoster);
+        editTextMovieName = findViewById(R.id.editTextMovieName);
     }
 
     public void initEvents() {
@@ -54,7 +58,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void requestMovieInfo() {
-        omDbAPI.requestMovieInfo("Bsadafa", text -> {
+        String movieName = editTextMovieName.getText().toString();
+        if (movieName.isEmpty()) {
+            // Mostrar mensaje de error si el campo está vacío
+            Toast.makeText(MainActivity.this, "Por favor ingrese el nombre de la película", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        omDbAPI.requestMovieInfo(movieName, text -> {
             GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.setFieldNamingStrategy(field -> {
                 var fieldName = field.getName();
