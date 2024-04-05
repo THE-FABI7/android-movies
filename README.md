@@ -1,5 +1,5 @@
-![Uploading image.png…]()
-
+  
+![movies app](https://github.com/THE-FABI7/android-movies/assets/80603614/d4eafded-2fd5-4dd5-8863-3d636ddb2ada)
 
 # PelículasApp
 
