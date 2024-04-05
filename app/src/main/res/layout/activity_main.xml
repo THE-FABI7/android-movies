@@ -32,6 +32,35 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/labAño"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Año" />
+
+        <TextView
+            android:id="@+id/labDuracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Duración" />
+
+        <TextView
+            android:id="@+id/labGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Genero" />
+
+        <TextView
+            android:id="@+id/labActores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginBottom="16dp"
+            android:text="Actores" />
+
         <ImageView
             android:id="@+id/imgPoster"
             android:layout_width="match_parent"
@@ -45,10 +74,10 @@
             android:id="@+id/editTextMovieName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese el nombre de la película"
-            android:inputType="text"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="16dp"/>
+            android:hint="Ingrese el nombre de la película"
+            android:inputType="text" />
 
 
         <Button

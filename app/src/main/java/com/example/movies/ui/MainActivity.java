@@ -30,9 +30,12 @@ import cafsoft.foundation.URLSession;
 public class MainActivity extends AppCompatActivity {
 
     private TextView labTittle = null;
+    private TextView labAño = null;
+    private TextView labDuracion = null;
+    private TextView labGenero = null;
+    private TextView labActores = null;
     private Button btnSearch = null;
     private ImageView imgPoster = null;
-
     private EditText editTextMovieName;
     private OMDbAPI omDbAPI = new OMDbAPI();
 
@@ -47,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
     public void initViews() {
         btnSearch = findViewById(R.id.btnSearch);
         labTittle = findViewById(R.id.labTittle);
+        labAño = findViewById(R.id.labAño);
+        labDuracion = findViewById(R.id.labDuracion);
+        labGenero = findViewById(R.id.labGenero);
+        labActores = findViewById(R.id.labActores);
         imgPoster = findViewById(R.id.imgPoster);
         editTextMovieName = findViewById(R.id.editTextMovieName);
+
     }
 
     public void initEvents() {
@@ -79,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("data", root.getTitle());
                 requestImage(root);
-            } else if(root.getResponse().equalsIgnoreCase("False")) {
+            } else if (root.getResponse().equalsIgnoreCase("False")) {
                 // Mostrar mensaje de error
                 runOnUiThread(() -> {
                     Toast.makeText(MainActivity.this, "Película no encontrada", Toast.LENGTH_SHORT).show();
@@ -92,7 +100,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showMovieInfo(Root info, Bitmap image) {
-        labTittle.setText(info.getTitle());
+        labTittle.setText("Titulo: " + info.getTitle());
+        labDuracion.setText("Duración : " + info.getRuntime());
+        labAño.setText("Año: " + info.getYear());
+        labGenero.setText("Genero: " + info.getGenre());
+        labActores.setText("Actores: " + info.getActors());
         imgPoster.setImageBitmap(image);
     }
 
