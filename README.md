@@ -1,3 +1,6 @@
+![Uploading image.png…]()
+
+
 # PelículasApp
 
 PelículasApp es una aplicación que te permite explorar información sobre películas utilizando una API de películas.
