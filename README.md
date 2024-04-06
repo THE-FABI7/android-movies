@@ -29,11 +29,9 @@ PelículasApp es una aplicación que te permite explorar información sobre pel�
 
 <details>
 <summary>Uso</summary>
-
-1. Selecciona un género de películas en la página de inicio
-2. Verás una lista de películas disponibles para ese género
-3. Haz clic en una película para ver más detalles
-4. Busca películas por título en la página de búsqueda
+v. Busca películas por título en la página de búsqueda
+2. Dar click en el boton de busquedad
+3. visualizar la informacion de la pelicula 
 </details>
 
 <details>
